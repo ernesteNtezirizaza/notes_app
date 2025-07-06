@@ -80,6 +80,15 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Login', style: TextStyle(color: Colors.indigo, fontWeight: FontWeight.bold)),
+        backgroundColor: Colors.indigo[50],
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_forward, color: Colors.indigo),
+          onPressed: _navigateToSignUp,
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -94,27 +103,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     // App Title
                     Text(
                       'Notes App',
-                      style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.indigo,
-                          ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 48),
-
-                    // Welcome Back message
-                    Text(
-                      'Welcome Back',
                       style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        color: Colors.grey[800],
+                        color: Colors.indigo[800], // Dark indigo text
+                        fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 48),
                     Text(
                       'Login to your account',
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: Colors.grey[700],
+                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        color: Colors.indigo[800], // Dark indigo text
+                        // fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -127,15 +127,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       validator: Validators.validateEmail,
                       decoration: InputDecoration(
                         labelText: 'Email',
-                        labelStyle: TextStyle(color: Colors.grey[700]),
-                        prefixIcon: Icon(Icons.email, color: Colors.grey[700]),
+                        labelStyle: TextStyle(color: Colors.indigo[600]),
+                        prefixIcon: Icon(Icons.email, color: Colors.indigo[400]),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(color: Colors.grey[600]!),
+                          borderSide: BorderSide(color: Colors.indigo[300]!),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(color: Colors.indigo),
+                          borderSide: BorderSide(color: Colors.indigo[500]!),
                         ),
                       ),
                     ),
@@ -148,14 +148,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       validator: Validators.validatePassword,
                       decoration: InputDecoration(
                         labelText: 'Password',
-                        labelStyle: TextStyle(color: Colors.grey[700]),
-                        prefixIcon: Icon(Icons.lock, color: Colors.grey[700]),
+                        labelStyle: TextStyle(color: Colors.indigo[600]),
+                        prefixIcon: Icon(Icons.lock, color: Colors.indigo[400]),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscurePassword
                                 ? Icons.visibility
                                 : Icons.visibility_off,
-                            color: Colors.grey[700],
+                            color: Colors.indigo[400],
                           ),
                           onPressed: () {
                             setState(() {
@@ -165,11 +165,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(color: Colors.grey[600]!),
+                          borderSide: BorderSide(color: Colors.indigo[300]!),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(color: Colors.indigo),
+                          borderSide: BorderSide(color: Colors.indigo[500]!),
                         ),
                       ),
                     ),
@@ -196,6 +196,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
                               ),
                       ),

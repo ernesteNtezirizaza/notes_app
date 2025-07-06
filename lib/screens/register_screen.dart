@@ -89,7 +89,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register'),
+        title: const Text('Register', style: TextStyle(color: Colors.indigo, fontWeight: FontWeight.bold)),
         backgroundColor: Colors.indigo[50], // Light indigo background
         elevation: 0,
         leading: IconButton(
@@ -108,20 +108,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    // Header section
+                    // App Title
                     Text(
-                      'Register Account',
+                      'Notes App',
                       style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         color: Colors.indigo[800], // Dark indigo text
                         fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 48),
                     Text(
-                      'Join us',
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: Colors.indigo[600], // Medium indigo text
+                      'Register your account',
+                      style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        color: Colors.indigo[800], // Dark indigo text
+                        // fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -233,7 +234,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 color: Colors.white,
                               )
                             : const Text(
-                                'Sign Up',
+                                'Register',
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.white,
@@ -250,6 +251,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         'Already have an account? Login',
                         style: TextStyle(
                           color: Colors.indigo[600], 
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),

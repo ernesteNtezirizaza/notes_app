@@ -50,7 +50,6 @@ class MyApp extends StatelessWidget {
             primary: Colors.teal.shade700,
             secondary: Colors.amber.shade600,
             surface: Colors.grey.shade50,
-            background: Colors.teal.shade50,
           ),
           
           // Enable Material 3 design features

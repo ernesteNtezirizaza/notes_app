@@ -51,26 +51,21 @@ class NotesProvider with ChangeNotifier {
 
       _notesSubscription?.cancel(); // Cancel any existing subscription
 
-      print('Starting to listen to notes for user: $userId');
-
       // Subscribe to the notes stream from the repository
       _notesSubscription = _notesRepository
           .getNotesStream(userId)
           .listen(
             (notes) {
-              print('Received ${notes.length} notes from stream');
               _notes = notes;
               _setLoading(false);
               notifyListeners();
             },
             onError: (error) {
-              print('Stream error: $error');
               _setError(error.toString());
               _setLoading(false);
             },
           );
     } catch (e) {
-      print('Error starting stream: $e');
       _setError(e.toString());
       _setLoading(false);
     }
@@ -106,14 +101,11 @@ class NotesProvider with ChangeNotifier {
   Future<bool> addNote(String text, String userId) async {
     try {
       clearError();
-      print('Adding note: $text for user: $userId');
 
       await _notesRepository.addNote(text, userId);
-      print('Note added successfully');
       // No need to manually refresh - stream will handle updates
       return true;
     } catch (e) {
-      print('Error adding note: $e');
       _setError(e.toString());
       return false;
     }
@@ -131,14 +123,11 @@ class NotesProvider with ChangeNotifier {
   Future<bool> updateNote(String noteId, String text, String userId) async {
     try {
       clearError();
-      print('Updating note: $noteId with text: $text');
 
       await _notesRepository.updateNote(noteId, text);
-      print('Note updated successfully');
       // No need to manually refresh - stream will handle updates
       return true;
     } catch (e) {
-      print('Error updating note: $e');
       _setError(e.toString());
       return false;
     }
@@ -155,14 +144,11 @@ class NotesProvider with ChangeNotifier {
   Future<bool> deleteNote(String noteId, String userId) async {
     try {
       clearError();
-      print('Deleting note: $noteId');
 
       await _notesRepository.deleteNote(noteId);
-      print('Note deleted successfully');
       // No need to manually refresh - stream will handle updates
       return true;
     } catch (e) {
-      print('Error deleting note: $e');
       _setError(e.toString());
       return false;
     }

@@ -24,8 +24,6 @@ class _NotesScreenState extends State<NotesScreen> {
       final authProvider = Provider.of<AuthProvider>(context, listen: false);
       final notesProvider = Provider.of<NotesProvider>(context, listen: false);
 
-      print('Initializing NotesScreen with user: ${authProvider.user?.uid}');
-
       // Start listening to notes if user is authenticated
       if (authProvider.user != null) {
         notesProvider.startListeningToNotes(authProvider.user!.uid);

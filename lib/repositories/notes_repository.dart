@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/note.dart';
 
-/// A repository class that handles all CRUD operations for notes
-/// using Firebase Firestore as the backend database.
+// A repository class that handles all CRUD operations for notes
+// using Firebase Firestore as the backend database.
 class NotesRepository {
   // Firestore instance for database operations
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -10,17 +10,17 @@ class NotesRepository {
   // Collection name in Firestore where notes will be stored
   final String _collection = 'notes';
 
-  /// Fetches all notes for a specific user from Firestore.
-  /// 
-  /// Parameters:
-  /// - `userId`: The ID of the user whose notes to fetch
-  /// 
-  /// Returns:
-  /// - A Future<List<Note>> containing all notes for the user,
-  ///   ordered by updatedAt in descending order (newest first)
-  /// 
-  /// Throws:
-  /// - Exception if the fetch operation fails
+  // Fetches all notes for a specific user from Firestore.
+  // 
+  // Parameters:
+  // - `userId`: The ID of the user whose notes to fetch
+  // 
+  // Returns:
+  // - A Future<List<Note>> containing all notes for the user,
+  //   ordered by updatedAt in descending order (newest first)
+  // 
+  // Throws:
+  // - Exception if the fetch operation fails
   Future<List<Note>> fetchNotes(String userId) async {
     try {
       // Query Firestore for notes belonging to the user, ordered by update time
@@ -41,14 +41,14 @@ class NotesRepository {
     }
   }
 
-  /// Adds a new note to Firestore.
-  /// 
-  /// Parameters:
-  /// - `text`: The content of the note
-  /// - `userId`: The ID of the user who owns the note
-  /// 
-  /// Throws:
-  /// - Exception if the add operation fails
+  // Adds a new note to Firestore.
+  // 
+  // Parameters:
+  // - `text`: The content of the note
+  // - `userId`: The ID of the user who owns the note
+  // 
+  // Throws:
+  // - Exception if the add operation fails
   Future<void> addNote(String text, String userId) async {
     try {
       final now = DateTime.now();
@@ -68,14 +68,14 @@ class NotesRepository {
     }
   }
 
-  /// Updates an existing note in Firestore.
-  /// 
-  /// Parameters:
-  /// - `noteId`: The ID of the note to update
-  /// - `text`: The new content for the note
-  /// 
-  /// Throws:
-  /// - Exception if the update operation fails
+  // Updates an existing note in Firestore.
+  // 
+  // Parameters:
+  // - `noteId`: The ID of the note to update
+  // - `text`: The new content for the note
+  // 
+  // Throws:
+  // - Exception if the update operation fails
   Future<void> updateNote(String noteId, String text) async {
     try {
       // Update the note's text and set updatedAt to current time
@@ -88,13 +88,13 @@ class NotesRepository {
     }
   }
 
-  /// Deletes a note from Firestore.
-  /// 
-  /// Parameters:
-  /// - `noteId`: The ID of the note to delete
-  /// 
-  /// Throws:
-  /// - Exception if the delete operation fails
+  // Deletes a note from Firestore.
+  // 
+  // Parameters:
+  // - `noteId`: The ID of the note to delete
+  // 
+  // Throws:
+  // - Exception if the delete operation fails
   Future<void> deleteNote(String noteId) async {
     try {
       // Delete the note document from Firestore
@@ -104,14 +104,14 @@ class NotesRepository {
     }
   }
 
-  /// Gets a real-time stream of notes for a specific user.
-  /// 
-  /// Parameters:
-  /// - `userId`: The ID of the user whose notes to stream
-  /// 
-  /// Returns:
-  /// - A Stream<List<Note>> that emits whenever the notes collection changes,
-  ///   maintaining order by updatedAt in descending order (newest first)
+  // Gets a real-time stream of notes for a specific user.
+  // 
+  // Parameters:
+  // - `userId`: The ID of the user whose notes to stream
+  // 
+  // Returns:
+  // - A Stream<List<Note>> that emits whenever the notes collection changes,
+  //   maintaining order by updatedAt in descending order (newest first)
   Stream<List<Note>> getNotesStream(String userId) {
     return _firestore
         .collection(_collection)
