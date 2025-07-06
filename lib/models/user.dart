@@ -1,10 +1,10 @@
-class User {
+class UserModel {
   final String uid;
   final String email;
 
-  User({required this.uid, required this.email});
+  UserModel({required this.uid, required this.email});
 
-  factory User.fromFirebaseUser(user) {
-    return User(uid: user.uid, email: user.email ?? '');
+  factory UserModel.fromFirebaseUser(user) {
+    return UserModel(uid: user.uid, email: user.email ?? '');
   }
 }

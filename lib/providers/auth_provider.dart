@@ -9,7 +9,7 @@ class AuthProvider with ChangeNotifier {
   final AuthRepository _authRepository = AuthRepository();
   
   // Current authenticated user (null if not authenticated)
-  User? _user;
+  UserModel? _user;
   
   // Loading state flag
   bool _isLoading = false;
@@ -18,7 +18,7 @@ class AuthProvider with ChangeNotifier {
   String _errorMessage = '';
 
   // Getter for the current user
-  User? get user => _user;
+  UserModel? get user => _user;
   
   // Getter for loading state
   bool get isLoading => _isLoading;
@@ -32,7 +32,7 @@ class AuthProvider with ChangeNotifier {
   /// Constructor that sets up auth state listener
   AuthProvider() {
     // Listen to authentication state changes from the repository
-    _authRepository.authStateChanges.listen((User? user) {
+    _authRepository.authStateChanges.listen((UserModel? user) {
       _user = user;
       notifyListeners(); // Notify widgets listening to this provider
     });
