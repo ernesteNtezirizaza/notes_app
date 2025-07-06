@@ -174,8 +174,8 @@ Stream<List<Note>> getNotesStream(String userId) {
 {
   "notes": {
     "noteId": {
-      "text": "Note content here",
-      "userId": "firebase_user_uid",
+      "text": "Note 1",
+      "userId": "user_uuid",
       "createdAt": 1625097600000,
       "updatedAt": 1625097600000
     }
