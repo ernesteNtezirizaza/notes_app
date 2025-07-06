@@ -167,7 +167,7 @@ class _NotesScreenState extends State<NotesScreen> {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       elevation: 2,
-      color: Colors.blueGrey[50], // Light background color for cards
+      color: Colors.blueGrey[50],
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: ListTile(
         contentPadding: const EdgeInsets.all(16),
@@ -260,7 +260,7 @@ class _NotesScreenState extends State<NotesScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _showAddNoteDialog,
-        backgroundColor: Colors.blue[700], // Matching dark blue FAB
+        backgroundColor: Colors.blue[700],
         child: const Icon(Icons.add, color: Colors.white),
       ),
     );
