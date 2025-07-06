@@ -15,9 +15,11 @@ A robust Flutter application for personal note management featuring Firebase Aut
 - **Persistent Sessions**: Maintains user login state between app launches
 - **Comprehensive Error Management**: Full error handling across all app operations
 
-### Project Structure
+### Architecture Diagram
 
 The application implements clean architecture with distinct layer separation:
+
+![image](https://github.com/user-attachments/assets/886eec36-fb66-4eda-b3d5-f81d0dcdeeca)
 
 ```
 lib/
